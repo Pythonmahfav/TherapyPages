@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="Therapy Pages — coloring books made for a little peace of mind."
+  />
+
+  <title>Therapy Pages | Coloring = Therapy</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --pink: #f7b8d8;
+      --light-pink: #fff0f7;
+      --purple: #9b72cf;
+      --dark-purple: #583b78;
+      --lavender: #eee4f8;
+      --cream: #fffafc;
+      --text: #46384d;
+      --white: #ffffff;
+      --shadow: 0 15px 40px rgba(88, 59, 120, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 250, 252, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(155, 114, 207, 0.12);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 16px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 27px;
+      font-weight: 700;
+      color: var(--dark-purple);
+    }
+
+    .logo span {
+      color: var(--pink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--purple);
+    }
+
+    .nav-order {
+      background: var(--dark-purple);
+      color: white;
+      padding: 11px 20px;
+      border-radius: 30px;
+      transition: 0.3s ease;
+    }
+
+    .nav-order:hover {
+      background: var(--purple);
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      min-height: 90vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% 20%, #fbd9e9 0, transparent 25%),
+        radial-gradient(circle at 90% 80%, #e6d6f6 0, transparent 30%),
+        var(--cream);
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      padding: 80px 25px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-text {
+      animation: fadeUp 0.9s ease forwards;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--light-pink);
+      color: var(--dark-purple);
+      padding: 9px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(48px, 6vw, 78px);
+      line-height: 1.05;
+      color: var(--dark-purple);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--purple);
+    }
+
+    .hero p {
+      max-width: 520px;
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      color: #6c5a70;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      padding: 14px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--dark-purple);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      background: var(--purple);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--dark-purple);
+      border: 1px solid #eadcf2;
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-4px);
+      border-color: var(--purple);
+    }
+
+    /* =========================
+       HERO BOOK DISPLAY
+    ========================== */
+
+    .book-display {
+      position: relative;
+      min-height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .book {
+      width: 230px;
+      height: 320px;
+      border-radius: 8px 15px 15px 8px;
+      background: linear-gradient(145deg, #f8c6df, #caa6e8);
+      box-shadow: 20px 25px 50px rgba(88, 59, 120, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 25px;
+      text-align: center;
+      position: relative;
+      z-index: 3;
+      transform: rotate(-6deg);
+      animation: floatBook 4s ease-in-out infinite;
+    }
+
+    .book::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: rgba(255,255,255,0.5);
+    }
+
+    .book h2 {
+      font-family: "Playfair Display", serif;
+      color: white;
+      font-size: 31px;
+      margin-bottom: 12px;
+    }
+
+    .book p {
+      color: white;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .floating-book {
+      position: absolute;
+      width: 190px;
+      height: 270px;
+      border-radius: 8px 15px 15px 8px;
+      background: #f0dff7;
+      box-shadow: 15px 20px 40px rgba(88, 59, 120, 0.12);
+      z-index: 2;
+      transform: rotate(8deg) translate(110px, 20px);
+    }
+
+    .floating-book::after {
+      content: "🎀";
+      font-size: 45px;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* =========================
+       FLOATING DECOR
+    ========================== */
+
+    .heart,
+    .flower {
+      position: absolute;
+      opacity: 0.7;
+      animation: floatDecor 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .heart {
+      color: var(--pink);
+      font-size: 30px;
+    }
+
+    .flower {
+      font-size: 28px;
+    }
+
+    .heart-one {
+      top: 15%;
+      left: 7%;
+    }
+
+    .heart-two {
+      bottom: 15%;
+      right: 8%;
+      animation-delay: 1s;
+    }
+
+    .flower-one {
+      top: 25%;
+      right: 5%;
+      animation-delay: 1.5s;
+    }
+
+    .flower-two {
+      bottom: 10%;
+      left: 10%;
+      animation-delay: 2s;
+    }
+
+    /* =========================
+       SECTION
+    ========================== */
+
+    section {
+      padding: 90px 25px;
+    }
+
+    .section-container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 50px;
+    }
+
+    .section-heading span {
+      color: var(--purple);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .section-heading h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 45px;
+      color: var(--dark-purple);
+      margin: 10px 0;
+    }
+
+    .section-heading p {
+      line-height: 1.7;
+      color: #766879;
+    }
+
+    /* =========================
+       CATEGORY CARDS
+    ========================== */
+
+    .categories {
+      background: white;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .category-card {
+      padding: 35px 28px;
+      border-radius: 25px;
+      background: var(--cream);
+      border: 1px solid #f0e3f2;
+      transition: 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .category-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--lavender);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 27px;
+      margin-bottom: 22px;
+    }
+
+    .category-card h3 {
+      color: var(--dark-purple);
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .category-card p {
+      line-height: 1.7;
+      color: #756879;
+      margin-bottom: 20px;
+    }
+
+    .learn-more {
+      color: var(--purple);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* =========================
+       SHOP
+    ========================== */
+
+    .shop {
+      background: var(--light-pink);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 25px;
+      padding: 15px;
+      box-shadow: 0 8px 30px rgba(88, 59, 120, 0.08);
+      transition: 0.35s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .product-image {
+      height: 330px;
+      border-radius: 18px;
+      background: linear-gradient(145deg, #f8d5e7, #dfc8f0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .product-info {
+      padding: 20px 8px 8px;
+    }
+
+    .product-info h3 {
+      color: var(--dark-purple);
+      font-family: "Playfair Display", serif;
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .product-info p {
+      color: #806f82;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-weight: 800;
+      color: var(--purple);
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .product-btn {
+      width: 100%;
+      border: none;
+      padding: 13px;
+      border-radius: 25px;
+      background: var(--dark-purple);
+      color: white;
+      font-weight: 700;
+      transition: 0.3s ease;
+    }
+
+    .product-btn:hover {
+      background: var(--purple);
+    }
+
+    /* =========================
+       CUSTOM SECTION
+    ========================== */
+
+    .custom-section {
+      background: white;
+    }
+
+    .custom-box {
+      background: linear-gradient(135deg, #f8d8e8, #eadcf8);
+      border-radius: 35px;
+      padding: 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .custom-box h2 {
+      font-family: "Playfair Display", serif;
+      color: var(--dark-purple);
+      font-size: 45px;
+      margin-bottom: 18px;
+    }
+
+    .custom-box p {
+      line-height: 1.8;
+      margin-bottom: 25px;
+      color: #65566a;
+    }
+
+    .custom-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .custom-list li {
+      font-weight: 600;
+    }
+
+    .custom-visual {
+      min-height: 330px;
+      background: rgba(255,255,255,0.55);
+      border-radius: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 90px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================== */
+
+    .about {
+      background: var(--cream);
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-content h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 48px;
+      color: var(--dark-purple);
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      font-size: 17px;
+      line-height: 1.9;
+      color: #6f6172;
+    }
+
+    .quote {
+      margin-top: 30px;
+      font-family: "Playfair Display", serif;
+      color: var(--purple);
+      font-size: 27px;
+    }
+
+    /* =========================
+       ORDER MODAL
+    ========================== */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(52, 36, 60, 0.55);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content {
+      width: 100%;
+      max-width: 520px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: white;
+      border-radius: 28px;
+      padding: 30px;
+      position: relative;
+      animation: modalUp 0.35s ease;
+    }
+
+    .close-modal {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      border: none;
+      background: transparent;
+      font-size: 28px;
+      color: #806f82;
+    }
+
+    .modal-content h2 {
+      font-family: "Playfair Display", serif;
+      color: var(--dark-purple);
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .modal-content > p {
+      color: #756879;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid #eaddec;
+      border-radius: 13px;
+      font-family: inherit;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--purple);
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .submit-order {
+      width: 100%;
+      border: none;
+      padding: 15px;
+      border-radius: 25px;
+      background: var(--dark-purple);
+      color: white;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: var(--dark-purple);
+      color: white;
+      padding: 50px 25px;
+      text-align: center;
+    }
+
+    footer h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      opacity: 0.85;
+      margin-bottom: 20px;
+    }
+
+    .social {
+      display: inline-block;
+      background: white;
+      color: var(--dark-purple);
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: 700;
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================== */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes modalUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatBook {
+      0%, 100% {
+        transform: rotate(-6deg) translateY(0);
+      }
+      50% {
+        transform: rotate(-3deg) translateY(-12px);
+      }
+    }
+
+    @keyframes floatDecor {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-15px) rotate(8deg);
+      }
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 60px;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .book-display {
+        min-height: 390px;
+      }
+
+      .book {
+        width: 190px;
+        height: 270px;
+      }
+
+      .floating-book {
+        width: 155px;
+        height: 225px;
+        transform: rotate(8deg) translate(85px, 15px);
+      }
+
+      .category-grid,
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .custom-box {
+        grid-template-columns: 1fr;
+        padding: 35px 25px;
+      }
+
+      .custom-box h2 {
+        font-size: 37px;
+      }
+
+      .custom-visual {
+        min-height: 220px;
+      }
+
+      section {
+        padding: 70px 18px;
+      }
+
+      .section-heading h2 {
+        font-size: 38px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .book-display {
+        transform: scale(0.9);
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .modal-content {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+  <header>
+    <nav class="nav">
+
+      <a href="#home" class="logo">
+        Therapy<span>Pages</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#custom">Custom Books</a>
+        <a href="#about">About</a>
+        <a href="#shop" class="nav-order">Order Now 💜</a>
+      </div>
+
+    </nav>
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="heart heart-one">♡</div>
+      <div class="heart heart-two">♡</div>
+
+      <div class="flower flower-one">✿</div>
+      <div class="flower flower-two">✿</div>
+
+      <div class="hero-content">
+
+        <div class="hero-text">
+
+          <span class="eyebrow">
+            🎀 Welcome to Therapy Pages
+          </span>
+
+          <h1>
+            Color your way
+            <span>to a little peace.</span>
+          </h1>
+
+          <p>
+            Coloring books created for those moments when you just need
+            to slow down, breathe, and take a little break from life.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#shop" class="btn btn-primary">
+              Shop Books 🛍️
+            </a>
+
+            <a href="#custom" class="btn btn-secondary">
+              Create a Custom Book ✨
+            </a>
+          </div>
+
+        </div>
+
+
+        <div class="book-display">
+
+          <div class="floating-book"></div>
+
+          <div class="book">
+            <div style="font-size:45px; margin-bottom:15px;">🎀</div>
+
+            <h2>
+              IN MY<br>
+              COLORING<br>
+              ERA
+            </h2>
+
+            <p>
+              Therapy Pages
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CATEGORIES
+    ========================== -->
+
+    <section class="categories">
+
+      <div class="section-container">
+
+        <div class="section-heading">
+
+          <span>Find your page</span>
+
+          <h2>
+            Something for every girlie 💕
+          </h2>
+
+          <p>
+            Whether you're coloring to relax, gifting a little girl,
+            or creating something completely personal — we've got you.
+          </p>
+
+        </div>
+
+
+        <div class="category-grid">
+
+          <div class="category-card">
+
+            <div class="category-icon">
+              🧘🏽‍♀️
+            </div>
+
+            <h3>
+              Adult Coloring Books
+            </h3>
+
+            <p>
+              A little escape from the chaos. Grab your colors,
+              put your phone down and just breathe.
+            </p>
+
+            <a href="#shop" class="learn-more">
+              Shop Adult Books →
+            </a>
+
+          </div>
+
+
+          <div class="category-card">
+
+            <div class="category-icon">
+              🎀
+            </div>
+
+            <h3>
+              Girls' Coloring Books
+            </h3>
+
+            <p>
+              Cute, fun and made for your little color girlies.
+            </p>
+
+            <a href="#shop" class="learn-more">
+              Shop Girls' Books →
+            </a>
+
+          </div>
+
+
+          <div class="category-card">
+
+            <div class="category-icon">
+              ✨
+            </div>
+
+            <h3>
+              Custom Books
+            </h3>
+
+            <p>
+              Your theme, your photos, your messages and your
+              own personal coloring experience.
+            </p>
+
+            <a href="#custom" class="learn-more">
+              Create Yours →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SHOP
+    ========================== -->
+
+    <section class="shop" id="shop">
+
+      <div class="section-container">
+
+        <div class="section-heading">
+
+          <span>Shop Therapy Pages</span>
+
+          <h2>
+            Pick your coloring therapy 🖍️
+          </h2>
+
+          <p>
+            Choose your favorite and let's get those colors moving.
+          </p>
+
+        </div>
+
+
+        <div class="product-grid">
+
+          <!-- ADULT -->
+
+          <div class="product-card">
+
+            <div class="product-image">
+              ADULT<br>
+              COLORING<br>
+              BOOK
+            </div>
+
+            <div class="product-info">
+
+              <h3>
+                Adult Coloring Book
+              </h3>
+
+              <p>
+                For the big girls who need a little break.
+              </p>
+
+              <div class="price">
+                $6,500 JMD
+              </div>
+
+              <button
+                class="product-btn"
+                onclick="openOrder('Adult Coloring Book')"
+              >
+                Add to Order 💜
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- GIRLS -->
+
+          <div class="product-card">
+
+            <div class="product-image">
+              GIRLS'<br>
+              COLORING<br>
+              BOOK
+            </div>
+
+            <div class="product-info">
+
+              <h3>
+                Girls' Coloring Book
+              </h3>
+
+              <p>
+                A cute coloring adventure for your little girlies.
+              </p>
+
+              <div class="price">
+                $5,000 JMD
+              </div>
+
+              <button
+                class="product-btn"
+                onclick="openOrder('Girls\\' Coloring Book')"
+              >
+                Add to Order 🎀
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- BOYS -->
+
+          <div class="product-card">
+
+            <div class="product-image">
+              BOYS'<br>
+              COLORING<br>
+              BOOK
+            </div>
+
+            <div class="product-info">
+
+              <h3>
+                Boys' Coloring Book
+              </h3>
+
+              <p>
+                Fun coloring pages made for the little guys.
+              </p>
+
+              <div class="price">
+                $5,000 JMD
+              </div>
+
+              <button
+                class="product-btn"
+                onclick="openOrder('Boys\\' Coloring Book')"
+              >
+                Add to Order 💙
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CUSTOM
+    ========================== -->
+
+    <section class="custom-section" id="custom">
+
+      <div class="section-container">
+
+        <div class="custom-box">
+
+          <div>
+
+            <span class="eyebrow">
+              ✨ Make it personal
+            </span>
+
+            <h2>
+              Your memories.<br>
+              Your book.
+            </h2>
+
+            <p>
+              Create a coloring book that's completely yours.
+              Add your favorite photos, special messages,
+              affirmations, themes and more.
+            </p>
+
+            <ul class="custom-list">
+
+              <li>♡ Choose your theme</li>
+              <li>♡ Add your photos</li>
+              <li>♡ Add messages & affirmations</li>
+              <li>♡ Create something truly personal</li>
+
+            </ul>
+
+            <br>
+
+            <button
+              class="btn btn-primary"
+              onclick="openOrder('Custom Coloring Book')"
+            >
+              Start My Custom Book ✨
+            </button>
+
+          </div>
+
+
+          <div class="custom-visual">
+            🖍️ 🎀 💜
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="about" id="about">
+
+      <div class="section-container">
+
+        <div class="about-content">
+
+          <span class="eyebrow">
+            About Therapy Pages
+          </span>
+
+          <h2>
+            Sometimes you just need a little break. 💜
+          </h2>
+
+          <p>
+            Therapy Pages was created with one simple idea:
+            coloring can give you a moment to slow down and
+            take your mind off everything else.
+          </p>
+
+          <p style="margin-top:20px;">
+            Whether you're coloring after a long day,
+            spending time with your little one, or creating
+            a custom book filled with memories,
+            we hope every page gives you a little peace of mind.
+          </p>
+
+          <div class="quote">
+            “Coloring = therapy.”
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <h2>
+      Therapy Pages 💜
+    </h2>
+
+    <p>
+      For the betterment of a person's mental health.
+    </p>
+
+    <a
+      href="https://www.instagram.com/therapy_pages_/"
+      target="_blank"
+      class="social"
+    >
+      Follow us on Instagram 🎀
+    </a>
+
+    <p style="margin-top:25px; font-size:13px;">
+      © 2026 Therapy Pages. All rights reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- =========================
+       ORDER MODAL
+  ========================== -->
+
+  <div class="modal" id="orderModal">
+
+    <div class="modal-content">
+
+      <button
+        class="close-modal"
+        onclick="closeOrder()"
+      >
+        ×
+      </button>
+
+      <h2>
+        Place Your Order 🎀
+      </h2>
+
+      <p>
+        Tell us what you'd like and we'll contact you
+        to confirm your order.
+      </p>
+
+
+      <form id="orderForm">
+
+        <div class="form-group">
+
+          <label>
+            What would you like?
+          </label>
+
+          <select id="product" required>
+
+            <option value="">
+              Select a book
+            </option>
+
+            <option value="Adult Coloring Book">
+              Adult Coloring Book
+            </option>
+
+            <option value="Girls' Coloring Book">
+              Girls' Coloring Book
+            </option>
+
+            <option value="Boys' Coloring Book">
+              Boys' Coloring Book
+            </option>
+
+            <option value="Custom Coloring Book">
+              Custom Coloring Book
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Your Name
+          </label>
+
+          <input
+            type="text"
+            id="customerName"
+            placeholder="Your name"
+            required
+          />
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            WhatsApp Number
+          </label>
+
+          <input
+            type="tel"
+            id="phone"
+            placeholder="876..."
+            required
+          />
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Quantity
+          </label>
+
+          <input
+            type="number"
+            id="quantity"
+            min="1"
+            value="1"
+            required
+          />
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Anything you'd like us to know?
+          </label>
+
+          <textarea
+            id="notes"
+            placeholder="For custom books, tell us a little about what you'd like..."
+          ></textarea>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="submit-order"
+        >
+          Submit Order 💜
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    const modal = document.getElementById("orderModal");
+
+    const productSelect = document.getElementById("product");
+
+
+    function openOrder(productName) {
+
+      modal.classList.add("active");
+
+      productSelect.value = productName;
+
+    }
+
+
+    function closeOrder() {
+
+      modal.classList.remove("active");
+
+    }
+
+
+    /* Close when clicking outside the form */
+
+    modal.addEventListener("click", function(event) {
+
+      if (event.target === modal) {
+
+        closeOrder();
+
+      }
+
+    });
+
+
+    /* Temporary order submission */
+
+    document
+      .getElementById("orderForm")
+      .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const product =
+          document.getElementById("product").value;
+
+        const name =
+          document.getElementById("customerName").value;
+
+        const phone =
+          document.getElementById("phone").value;
+
+        const quantity =
+          document.getElementById("quantity").value;
+
+        const notes =
+          document.getElementById("notes").value;
+
+
+        alert(
+          "Thank you, " +
+          name +
+          "! 💜\n\n" +
+          "Your order request for " +
+          quantity +
+          " x " +
+          product +
+          " has been received.\n\n" +
+          "We'll contact you on WhatsApp at " +
+          phone +
+          " to confirm everything."
+        );
+
+
+        document.getElementById("orderForm").reset();
+
+        closeOrder();
+
+      });
+
+  </script>
+
+</body>
+</html>
